@@ -27,3 +27,25 @@ Modelar un centro de coworking: espacios físicos tipificados con su tarifa, mie
 ## Resultado
 
 ![Diagrama](captura.png)
+
+---
+
+## Normalización
+
+Se normaliza el documento `Miembro` con sus registros de `Consumo`. En todas las tablas la PK va en la primera columna y las FK al final. Los datos son de ejemplo.
+
+**Forma 0.** Una sola tabla con todo junto. Hay celdas con listas: cada miembro puede tener varios registros de consumo.
+
+![Forma 0](normalizacion/00-forma-0.png)
+
+**1FN.** Cada elemento de la lista pasa a su propia fila y la clave queda compuesta: (`id_miembro`, `id_servicio`).
+
+![1FN](normalizacion/01-1fn.png)
+
+**2FN.** Los datos de miembro dependen solo de `id_miembro` y los de servicio solo de `id_servicio`. Se separan en `Miembro` y `Servicio`; `Consumo` queda con la clave compuesta y lo que depende de ambos.
+
+![2FN](normalizacion/02-2fn.png)
+
+**3FN.** No quedan dependencias transitivas. En el modelo final cada tabla usa su id propio.
+
+![3FN](normalizacion/03-3fn.png)
