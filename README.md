@@ -49,3 +49,9 @@ Se normaliza el documento `Miembro` con sus registros de `Consumo`. En todas las
 **3FN.** No quedan dependencias transitivas. En el modelo final cada tabla usa su id propio.
 
 ![3FN](normalizacion/03-3fn.png)
+
+---
+
+## SQL
+
+El script `script.sql` crea las tablas con sus claves primarias y foráneas y carga datos de ejemplo. Está probado en SQLite (con `PRAGMA foreign_keys = ON;`).
